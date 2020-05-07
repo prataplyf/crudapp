@@ -13,9 +13,9 @@ def postdetails():
             id = data.get('id')
         print(id)
         authorpost = []
-        postID = ml.config.article.find({'_id':ml.ObjectId(id)})
         tempID = [str(temp['_id']) for temp in ml.config.article.find({},{'_id':1})]
         print(tempID)
+        postID = ml.config.article.find({'_id':ml.ObjectId(id)})
         if id in tempID:
             for x in postID:
                 authorpost.append(x)

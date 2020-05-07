@@ -27,8 +27,12 @@ def like():
         vdislike = data['dislikes']
         id = data['id']
         print(vlike, vdislike)
-        for x in ml.config.article.find({},{'_id':1}):
-            postID = str(x['_id'])  # Author's article id in which likes and dislikes will be count and store in db
-            if id == postID:
-                ml.config.article.update({"_id":x['_id']},{'$push':{'likes':vlike, 'dislikes':vdislike}})
-        return ml.jsonify({'status':200, 'message':'','error':''})
+        tempID = [str(temp['_id']) for temp in ml.config.article.find({},{'_id':1})]
+        print(tempID)
+        postID = ml.config.article.find_one({'_id':ml.ObjectId(id)})
+        if id in tempID:
+            query = {'$set':{'likes':vlike, 'dislikes':vdislike}}
+            ml.config.article.update({"_id":ml.ObjectId(id)},query)
+            return ml.jsonify({'status':200, 'message':'like and dislike updated','error':''})
+        else:
+            return ml.jsonify({'status':404, 'message':'post not found', 'error':'_id not found'})

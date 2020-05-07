@@ -17,7 +17,7 @@ def createpost():
             author = data.get('author')
         print(post_desc,post_title,author)
         # insert post data into db
-        ml.config.article.insert_one({'post_title':post_title, 'post_desc':post_desc, 'author':author, 'likes':0, 'dislikes':0, 'created_at':ml.datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+        ml.config.article.insert_one({'post_title':post_title, 'post_desc':post_desc, 'author':author, 'likes':0, 'dislikes':0, 'created_at':ml.currentdate})
         # return data
         return ml.jsonify({'status':200, 'message':'Post Created Successfully', 'error':''})
     return ml.render_template('account/createpost.html', title='createpost')

@@ -23,5 +23,5 @@ def postdetails():
             authorpost[0]['_id'] = id
             return ml.make_response(ml.jsonify({'status':200, 'message':'author post fetched', 'data':authorpost, 'error':''}))
         else:
-            return ml.jsonify({'status':404, 'message':'id not found', 'error':'error message'})
+            return ml.jsonify({'status':404, 'message':'post not found', 'error':'_id not found'})
     return ml.render_template('account/postdetails.html', title='post details')

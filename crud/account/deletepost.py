@@ -17,5 +17,5 @@ def deletepost():
             ml.config.article.remove({'_id':ml.ObjectId(id)}, {'_id':1, 'post_title':1, 'post_desc':1, 'author':1, 'likes':1, 'dislikes':1, 'created_at':1})
             return ml.jsonify({"status":200,"message":"Post Deleted Successfully", 'error':''})
         else:
-            return ml.jsonify({"status":404,"message":"id not found", 'error':'error message'})
+            return ml.jsonify({'status':404, 'message':'post not found', 'error':'_id not found'})
     return ml.render_template('account/deletepost.html', title='MobileApp-Delete')

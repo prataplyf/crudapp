@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block contents %}
+    <form class="main_form" method = "POST">
+        <div class=''>
+            <p><font color='#aaa000'> {{ '-'*20 }} Account Details  </font></p>
+            <p>Click here for <a href="{{ url_for('createpost') }}">Create New Post</a> of CRUD</p>
+            <p>Click here for <a href="{{ url_for('allpost') }}">Show all Post</a> of CRUD</p>
+        </div>
+        <div class=''>
+            <p>Click here for <a href="{{ url_for('deletepost') }}">Delete Post</a> of CRUD</p>
+            <p>Click here for <a href="{{ url_for('editpost') }}">Edit Post</a> of CRUD</p>
+            <p>Click here for <a href="{{ url_for('postdetails') }}">Post Details</a> of CRUD</p>
+        </div>
+
+    </form>
+{% endblock contents %}

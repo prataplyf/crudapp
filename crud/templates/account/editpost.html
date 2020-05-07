@@ -1,0 +1,32 @@
+{% extends 'layout.html' %} {% block contents %}
+<!--Body Id-->
+<form action="{{ url_for('editpost') }}" method="POST" class="formstyle">
+    <fieldset id="borderfield">
+        <div id="borderfrom">
+            <table>
+                <tr>
+                    <td>Post ID</td>
+                    <td> <input type="text" name="id" placeholder="Post ID" /></td>
+                </tr>
+                <tr>
+                    <td>Post Title</td>
+                    <td> <input type="text" name="post_title" placeholder="Title of Post" /></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td> <input type="text" name="post_desc" placeholder="Description of Post" required></td>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td> <input type="text" name="author" placeholder="Author Name" required></td>
+                </tr>
+                <div id="bordersubmit">
+                    <tr>
+                        <td colspan="5"><span style="text-align:center;"> <input type = "submit" value = "Update" /> </span></td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

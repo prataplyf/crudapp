@@ -6,12 +6,10 @@ from crud import app
 def allpost():
     if ml.request.method == 'GET':
         allpost = []
-        for x in ml.config.article.find({},{'_id':1, 'post_title':1, 'post_desc':1, 'likes':1, 'dislikes':1}):
-            allpost.append({'id': str(x['_id']),
-                            'post_title':x['post_title'],
-                            'post_desc':x['post_desc'],
-                            'likes':x['likes'],
-                            'dislikes':x['dislikes']})
+        data = ml.config.article.find({},{'_id':1, 'post_title':1, 'post_desc':1, 'likes':1, 'dislikes':1})
+        for x in data:
+            x['_id'] = str(x['_id'])
+            allpost.append(x)
         return ml.jsonify({"status":200,"message":"All Posts", "data":allpost, 'error':''})
 
 
@@ -27,10 +25,9 @@ def like():
         vdislike = data['dislikes']
         id = data['id']
         print(vlike, vdislike)
-        tempID = [str(temp['_id']) for temp in ml.config.article.find({},{'_id':1})]
-        print(tempID)
+        # tempID = [str(temp['_id']) for temp in ml.config.article.find({},{'_id':1})]
         postID = ml.config.article.find_one({'_id':ml.ObjectId(id)})
-        if id in tempID:
+        if  id == str(postID['_id']):
             query = {'$set':{'likes':vlike, 'dislikes':vdislike}}
             ml.config.article.update({"_id":ml.ObjectId(id)},query)
             return ml.jsonify({'status':200, 'message':'like and dislike updated','error':''})

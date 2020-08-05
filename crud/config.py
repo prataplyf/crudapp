@@ -1,9 +1,9 @@
 from crud import module as ml
 import pymongo
 # MongoDB
-myclient = pymongo.MongoClient("mongodb+srv://prataplyf:Ashish12@ashish-hbjy0.mongodb.net/test?retryWrites=true&w=majority")
-mydb = myclient.crud
-article = mydb["article"] # academy funnel
+myclient = pymongo.MongoClient("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+mydb = myclient.db_name
+article = mydb.schema_name # academy funnel
 
 # secret key for JWT Token used at user_login page
-master_key= "wharfstreetstrategies_masterKey_for_spaceIZ_Bounty"
+master_key= "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

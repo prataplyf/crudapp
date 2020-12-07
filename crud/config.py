@@ -1,7 +1,7 @@
 from crud import module as ml
 import pymongo
 # MongoDB
-myclient = pymongo.MongoClient("mongodb+srv://prataplyf:ashish12@ashish-hbjy0.mongodb.net/test?retryWrites=true&w=majority")
+myclient = pymongo.MongoClient("mongodb+srv://ashishs:bHyoeB2R9CfRXUVb@wsstrategies.k0xsd.mongodb.net/<dbname>?retryWrites=true&w=majority")
 mydb = myclient.crudapp
 article = mydb.posts # academy funnel
 
